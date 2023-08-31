@@ -16,10 +16,8 @@
 		lightbox.init();
 	});
 
-	export let data: PageData;
-	$: ({ product } = data);
-
-	let selected: number = 0;
+	let selectedVariant: number = 0;
+	let selectedImage: number = 0;
 	let openAccordion: number = 0;
 
 	function toggleAccordion(index: number) {
@@ -29,6 +27,9 @@
 			openAccordion = index;
 		}
 	}
+
+	export let data: PageData;
+	$: ({ product } = data);
 
 	function addToCartHandler(lineItem: ShopifyCartAdd) {
 		shopifyAddToCart({
@@ -55,7 +56,7 @@
 						{#if product.imageGallery && product.imageGallery?.images.length >= 1}
 							{#each product.imageGallery.images as image, index}
 								<button
-									on:click={() => (selected = index)}
+									on:click={() => (selectedImage = index)}
 									id="tabs-1-tab-{index}"
 									class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
 									aria-controls="tabs-1-panel-{index}"
@@ -71,7 +72,7 @@
 										/>
 									</span>
 									<span
-										class="{selected === index
+										class="{selectedImage === index
 											? 'ring-indigo-500'
 											: 'ring-transparent'} pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2"
 										aria-hidden="true"
@@ -102,7 +103,7 @@
 										aria-labelledby="tabs-1-tab-{index}"
 										role="tabpanel"
 										tabindex={index}
-										class="{selected === index
+										class="{selectedImage === index
 											? 'block'
 											: 'hidden'} aspect-h-1 aspect-w-1 relative overflow-hidden rounded-md bg-gray-100"
 									>
@@ -164,13 +165,36 @@
 				</div>
 
 				<form class="mt-6">
-					{#each product.store.variants as variant}
+					{#each product.store.variants as variant, i}
+						<button
+							on:click={() => (selectedVariant = variant.store.gid)}
+							type="button"
+							class="group m-2 relative w-100 flex justify-between items-center py-2 px-4 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50
+							{selectedVariant === variant.store.gid || (selectedVariant === 0 && i === 0) ? 'outline-none ring-2 ring-offset-2 ring-indigo-500' : ''}"
+							aria-controls="policies"
+							aria-expanded="false"
+						>{variant.store.title}
+							<span
+								class="{selectedVariant === variant.store.gid || (selectedVariant === 0 && i === 0)
+									? 'text-indigo-600'
+									: 'text-gray-900'} text-sm font-medium"> - Select</span
+							>
+							<span class="ml-2 flex-shrink-0 border-2 border-transparent group-hover:border-gray-300 rounded-full">
+								<span
+									class="{selectedVariant === variant.store.gid || (selectedVariant === 0 && i === 0)
+										? 'bg-indigo-600'
+										: 'bg-white'} h-4 w-4 rounded-full group-hover:bg-gray-300"
+									aria-hidden="true"
+								/>
+							</span>
+						</button>
+					{/each}
 						<div class="mt-10 flex">
 							<button
 								on:click={() =>
 									addToCartHandler({
 										cartId: $shopCart.id,
-										variantId: variant.store.gid,
+										variantId: selectedVariant,
 										quantity: 1
 									})}
 								type="submit"
@@ -178,7 +202,6 @@
 								>Add to bag</button
 							>
 						</div>
-					{/each}
 				</form>
 
 				<section aria-labelledby="details-heading" class="mt-12">
