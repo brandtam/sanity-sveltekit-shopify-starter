@@ -37,18 +37,15 @@ You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
-Sanity Studio
-
-```bash
-pnpm i sanity react react-dom react-is styled-components
-```
-
 ENV Variables Example
 
 ```bash
-VITE_SANITY_PROJECT_ID=xxxxxx
+VITE_SANITY_PROJECT_ID="xxxxxx"
 VITE_SANITY_PROJECT_TITLE="My Awesome Project"
-VITE_SANITY_DATASET=production
-VITE_SANITY_API_VERSION=2023-03-07
+VITE_SANITY_DATASET="production"
+VITE_SANITY_API_VERSION="2023-03-07"
 VITE_SANITY_USE_CDN=true
+VITE_SHOPIFY_DOMAIN="awesome-project.myshopify.com"
+VITE_SHOPIFY_API_VERSION="2021-04"
+VITE_SHOPIFY_STOREFRONT_API_TOKEN="111"
 ```
