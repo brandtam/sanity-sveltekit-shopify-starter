@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { shopCart } from '$lib/stores';
+	import { shopCart, shopifyInactiveStore } from '$lib/stores';
 	import type { PageData } from '../../routes/(app)/$types';
 	import { linear } from 'svelte/easing';
 	import { fly, fade } from 'svelte/transition';
@@ -57,6 +57,7 @@
 					</div>
 
 					<!-- Links -->
+					{#if !$shopifyInactiveStore}
 					<div class="mt-2">
 						<div class="border-b border-gray-200">
 							<div class="-mb-px flex space-x-8 px-4" aria-orientation="horizontal" role="tablist">
@@ -116,36 +117,9 @@
 									</div>
 								{/each}
 							</div>
-
-							<!-- <div class="space-y-10">
-								<div>
-									<p id="women-brands-heading-mobile" class="font-medium text-gray-900">Brands</p>
-									<ul
-										role="list"
-										aria-labelledby="women-brands-heading-mobile"
-										class="mt-6 flex flex-col space-y-6"
-									>
-										<li class="flow-root">
-											<a href="#" class="-m-2 block p-2 text-gray-500">Full Nelson</a>
-										</li>
-										<li class="flow-root">
-											<a href="#" class="-m-2 block p-2 text-gray-500">My Way</a>
-										</li>
-										<li class="flow-root">
-											<a href="#" class="-m-2 block p-2 text-gray-500">Re-Arranged</a>
-										</li>
-										<li class="flow-root">
-											<a href="#" class="-m-2 block p-2 text-gray-500">Counterfeit</a>
-										</li>
-										<li class="flow-root">
-											<a href="#" class="-m-2 block p-2 text-gray-500">Significant Other</a>
-										</li>
-									</ul>
-								</div>
-							</div> -->
 						</div>
 					</div>
-
+					{/if}
 					<div class="space-y-6 border-t border-gray-200 px-4 py-6">
 						<div class="flow-root">
 							<a
@@ -199,6 +173,7 @@
 
 					<div class="z-10 hidden lg:block lg:flex-1 lg:self-stretch">
 						<div class="flex h-full space-x-8">
+							{#if !$shopifyInactiveStore}
 							<div class="flex">
 								<div class="relative flex">
 									<button
@@ -265,7 +240,7 @@
 									</div>
 								{/if}
 							</div>
-
+							{/if}
 							<a
 								on:click={linkClickHandler}
 								href="/company"
@@ -305,6 +280,7 @@
 							height="64"
 							alt="Svelte Logo"
 						/>
+						{#if !$shopifyInactiveStore}
 						<img
 							class="h-14 w-auto"
 							src="/plus.svg"
@@ -319,7 +295,7 @@
 							height="64"
 							alt="Shopify Logo"
 						/>
-						
+						{/if}
 					</a>
 
 					<div class="flex flex-1 items-center justify-end">
@@ -347,6 +323,7 @@
 						</a>
 
 						<!-- Cart -->
+						{#if !$shopifyInactiveStore}
 						<div class="ml-4 flow-root lg:ml-6">
 							<a on:click={linkClickHandler} href="/cart" class="group -m-2 flex items-center p-2">
 								<svg
@@ -369,6 +346,7 @@
 								<span class="sr-only">items in cart, view bag</span>
 							</a>
 						</div>
+						{/if}
 					</div>
 				</div>
 			</div>

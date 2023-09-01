@@ -2,6 +2,8 @@ const storeUrl = import.meta.env.VITE_SHOPIFY_DOMAIN;
 const apiVersion = import.meta.env.VITE_SHOPIFY_API_VERSION;
 const accessToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
 const shopifyEndpoint = `https://${storeUrl}/api/${apiVersion}/graphql.json`;
+const shopifyInactive = !accessToken;
+
 import { shopCart } from '$lib/stores';
 import { goto } from '$app/navigation';
 
@@ -30,6 +32,9 @@ export async function shopifyFetch({ query, variables }: ShopifyFetch) {
 }
 
 export async function shopifyCreateCart() {
+	if (shopifyInactive) {
+		return;
+	}
 	try {
 		const response = await shopifyFetch({
 			query: `
