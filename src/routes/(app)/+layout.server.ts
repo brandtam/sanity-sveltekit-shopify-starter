@@ -28,7 +28,6 @@ export const load = (async () => {
 					...,
 					store {
 						...,
-						title,
 						variants[]->
 					}
 				}`

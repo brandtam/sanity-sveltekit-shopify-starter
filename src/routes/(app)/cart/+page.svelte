@@ -33,7 +33,7 @@
 									<a href="/products/{item.node.merchandise.product.handle}">
 										<img
 											src={item.node.merchandise.product.images.edges[0].node.originalSrc}
-											alt="Main Product"
+											alt="alt - {item.node.merchandise.product.images.edges[0].node.alt}"
 											class="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
 										/>
 									</a>

@@ -50,7 +50,7 @@
 					>
 						<img
 							src={urlFor(image.largeURL).width(600).auto('format').url()}
-							alt="Alt Text"
+							alt={image.alt}
 							class="h-full w-full object-cover object-center sm:rounded-lg"
 						/>
 					</a>
@@ -63,27 +63,3 @@
 		{/if}
 	</div>
 </div>
-
-<!-- <div class="pswp-gallery" id={galleryID}>
-	<div class="my-6 grid grid-cols-2 gap-4 md:grid-cols-4">
-		{#each mappedImages as image, index}
-			<div class="grid gap-4">
-				<div>
-					<a
-						href={image.largeURL}
-						data-pswp-width={image.width}
-						data-pswp-height={image.height}
-						target="_blank"
-						rel="noreferrer"
-					>
-						<img
-							class="max-h-full max-w-full rounded-lg"
-							src={image.thumbnailURL}
-							alt={image.alt}
-						/>
-					</a>
-				</div>
-			</div>
-		{/each}
-	</div>
-</div> -->

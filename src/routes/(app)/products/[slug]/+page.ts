@@ -14,7 +14,6 @@ export const load = (async ({ fetch, params }) => {
 				},
 				store {
 					...,
-					title,
 					variants[]->
 				}
 			}`

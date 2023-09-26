@@ -19,7 +19,7 @@
 						>
 							<img
 								src={product.store.previewImageUrl}
-								alt="Front of plain black t-shirt."
+								alt={product.store.title}
 								class="h-full w-full object-cover object-center sm:h-full sm:w-full"
 							/>
 						</div>

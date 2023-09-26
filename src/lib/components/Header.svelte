@@ -98,7 +98,7 @@
 									>
 										<img
 											src={product.store.previewImageUrl}
-											alt="Alt Text"
+											alt={product.store.title}
 											class="object-cover object-center md:group-hover:opacity-75"
 										/>
 										<div class="flex flex-col justify-end">
@@ -212,7 +212,7 @@
 																>
 																	<img
 																		src={product.store.previewImageUrl}
-																		alt="Alt Text"
+																		alt={product.store.title}
 																		class="object-cover object-center md:group-hover:opacity-75"
 																	/>
 																	<div class="flex flex-col justify-end">
