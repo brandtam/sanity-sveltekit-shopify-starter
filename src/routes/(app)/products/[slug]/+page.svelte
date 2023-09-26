@@ -169,19 +169,26 @@
 						<button
 							on:click={() => (selectedVariant = variant.store.gid)}
 							type="button"
-							class="group m-2 relative w-100 flex justify-between items-center py-2 px-4 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50
-							{selectedVariant === variant.store.gid || (selectedVariant === 0 && i === 0) ? 'outline-none ring-2 ring-offset-2 ring-indigo-500' : ''}"
+							class="w-100 group relative m-2 flex items-center justify-between rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50
+							{selectedVariant === variant.store.gid || (selectedVariant === 0 && i === 0)
+								? 'outline-none ring-2 ring-indigo-500 ring-offset-2'
+								: ''}"
 							aria-controls="policies"
 							aria-expanded="false"
-						>{variant.store.title}
+							>{variant.store.title}
 							<span
 								class="{selectedVariant === variant.store.gid || (selectedVariant === 0 && i === 0)
 									? 'text-indigo-600'
-									: 'text-gray-900'} text-sm font-medium"> - Select</span
+									: 'text-gray-900'} text-sm font-medium"
 							>
-							<span class="ml-2 flex-shrink-0 border-2 border-transparent group-hover:border-gray-300 rounded-full">
+								- Select</span
+							>
+							<span
+								class="ml-2 flex-shrink-0 rounded-full border-2 border-transparent group-hover:border-gray-300"
+							>
 								<span
-									class="{selectedVariant === variant.store.gid || (selectedVariant === 0 && i === 0)
+									class="{selectedVariant === variant.store.gid ||
+									(selectedVariant === 0 && i === 0)
 										? 'bg-indigo-600'
 										: 'bg-white'} h-4 w-4 rounded-full group-hover:bg-gray-300"
 									aria-hidden="true"
@@ -189,19 +196,20 @@
 							</span>
 						</button>
 					{/each}
-						<div class="mt-10 flex">
-							<button
-								on:click={() =>
-									addToCartHandler({
-										cartId: $shopCart.id,
-										variantId: selectedVariant,
-										quantity: 1
-									})}
-								type="submit"
-								class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-								>Add to bag</button
-							>
-						</div>
+					<div class="mt-10 flex">
+						<button
+							on:click={() =>
+								addToCartHandler({
+									cartId: $shopCart.id,
+									variantId: selectedVariant || product.store.variants[0].store.gid,
+									quantity: 1
+								})}
+							type="submit"
+							class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+							>Add to bag - selectedVariant= {selectedVariant ||
+								product.store.variants[0].store.gid}</button
+						>
+					</div>
 				</form>
 
 				<section aria-labelledby="details-heading" class="mt-12">
