@@ -180,9 +180,7 @@
 								class="{selectedVariant === variant.store.gid || (selectedVariant === 0 && i === 0)
 									? 'text-indigo-600'
 									: 'text-gray-900'} text-sm font-medium"
-							>
-								- Select</span
-							>
+							/>
 							<span
 								class="ml-2 flex-shrink-0 rounded-full border-2 border-transparent group-hover:border-gray-300"
 							>
