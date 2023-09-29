@@ -7,7 +7,7 @@ const shopifyInactive = !accessToken;
 export const shopifyInactiveStore = writable<boolean>(shopifyInactive);
 
 const localStorageCart = browser
-	? JSON.parse(window.localStorage.getItem('shop-cart')) ?? [shopifyCreateCart()]
+	? JSON.parse(window.localStorage.getItem('shop-cart') || '[]') ?? [shopifyCreateCart()]
 	: [shopifyCreateCart()];
 
 export const shopCart = writable<ShopifyCart>(localStorageCart);
