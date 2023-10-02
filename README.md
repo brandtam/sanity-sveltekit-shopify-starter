@@ -1,6 +1,10 @@
 # Sveltekit + Sanity + Shopify Starter
 
-Everything you need to build a Sveltekit Project powered by an embedded [`Sanity Studio`](https://sanity.io), PLUS Shopify for instant world class ecommerce.
+Everything you need to build a Sveltekit Project powered by an embedded [`Sanity Studio`](https://sanity.io), PLUS [`Shopify`](https://shopify.com) for instant world class ecommerce.
+
+NOTE: This project is intented to serve as a learning tool and is not production ready. It is not intended to be a starter for a production project. It is intended to be a learning tool for developers who want to learn how to use Sveltekit, Sanity and Shopify together. In particular, it is intended to represent a specific use case where Sanity is used to manage content and Shopify is used to manage products and checkout. This is not the only way to use Sanity and Shopify together. It is simply one way and it gets you quickly to the point of view where someone already has a Sveltekit project driven by Sanity and they want to add Shopify to it.
+
+The product Schemas portrayed in the embedded studio here came from Sanity and the [`Sanity Connect App`](https://apps.shopify.com/sanity-connect) again to get someone up and running quickly for experimentation and learning.
 
 ## Creating the project
 
