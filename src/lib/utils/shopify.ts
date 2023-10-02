@@ -7,7 +7,7 @@ const shopifyInactive = !accessToken;
 import { shopCart } from '$lib/stores';
 import { goto } from '$app/navigation';
 
-export async function shopifyFetch({ query, variables }: ShopifyFetch) {
+async function shopifyFetch({ query, variables }: ShopifyFetch) {
 	try {
 		const result = await fetch(shopifyEndpoint, {
 			method: 'POST',
@@ -15,7 +15,7 @@ export async function shopifyFetch({ query, variables }: ShopifyFetch) {
 				'Content-Type': 'application/json',
 				'X-Shopify-Storefront-Access-Token': accessToken
 			},
-			body: { query, variables } && JSON.stringify({ query, variables })
+			body: JSON.stringify({ query, variables })
 		});
 
 		return {
