@@ -2,27 +2,37 @@
 
 Everything you need to build a Sveltekit Project powered by an embedded [`Sanity Studio`](https://sanity.io), PLUS [`Shopify`](https://shopify.com) for instant world class ecommerce.
 
-NOTE: This project is intented to serve as a learning tool and is not production ready. It is not intended to be a starter for a production project. It is intended to be a learning tool for developers who want to learn how to use Sveltekit, Sanity and Shopify together. In particular, it is intended to represent a specific use case where Sanity is used to manage content and Shopify is used to manage products and checkout. This is not the only way to use Sanity and Shopify together. It is simply one way and it gets you quickly to the point of view where someone already has a Sveltekit project driven by Sanity and they want to add Shopify to it.
+NOTE: This project is intended to be a learning tool for developers who want to learn how to use Sveltekit, Sanity and Shopify together. In particular, it is intended to represent a specific use case where you already have a Sveltekit project driven by Sanity and you want to add Shopify to manage cart and checkout. This is not the only way to use Sanity and Shopify together. It is simply one way and it gets you quickly to the point where you can start experimenting and learning.
 
-The product Schemas portrayed in the embedded studio here came from Sanity and the [`Sanity Connect App`](https://apps.shopify.com/sanity-connect) again to get someone up and running quickly for experimentation and learning.
+The product Schemas portrayed in the embedded studio here came from Sanity and the [`Sanity Connect App`](https://apps.shopify.com/sanity-connect).
 
 ## Creating the project
 
 Clone the repo or use the template button on Github. CD into the project and install the dependencies using the package manager of your choice. I'll be using `pnpm` for this example.
 
+---
+
+_install packages_
+
 ```bash
-# install packages
 pnpm install
 ```
 
+---
+
 ## Setup the Sanity Studio
 
-https://www.sanity.io/docs/create-a-sanity-project
+Docs: https://www.sanity.io/docs/create-a-sanity-project
+
+---
+
+_connect to sanity_
 
 ```bash
-# connect to sanity
 pnpm create sanity@latest init --env
 ```
+
+---
 
 This step will:
 
