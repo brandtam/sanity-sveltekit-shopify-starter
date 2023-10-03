@@ -114,7 +114,7 @@ VITE_SHOPIFY_API_VERSION="2023-07"
 VITE_SHOPIFY_STOREFRONT_API_TOKEN="shpca_1234567890abcdefghijklmnopqrstuvwxyz"
 ```
 
-Note: You'll leave the Sanity Environment Variables as you set them in the prior step. Those are used by Sanity to connect to your Sanity project.
+Note: You'll leave the Sanity environment variables as you set them in the prior step. Those are used to connect to your Sanity project.
 
 ## Putting it all together
 
