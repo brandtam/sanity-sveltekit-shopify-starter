@@ -4,7 +4,7 @@ Everything you need to build a Sveltekit Project powered by an embedded [`Sanity
 
 NOTE: This project is intended to be a learning tool for developers who want to learn how to use Sveltekit, Sanity and Shopify together. In particular, it is intended to represent a specific use case where you already have a Sveltekit project driven by Sanity and you want to add Shopify to manage cart and checkout. This is not the only way to use Sanity and Shopify together. It is simply one way and it gets you quickly to the point where you can start experimenting and learning.
 
-The product Schemas portrayed in the embedded studio here came from Sanity and the [`Sanity Connect App`](https://apps.shopify.com/sanity-connect).
+Most of the included schemas in the embedded studio here came from Sanity and the [`Sanity Connect App`](https://www.sanity.io/docs/sanity-connect-for-shopify). There's a lot of useful information in the Sanity docs and I highly recommend reading through them.
 
 ## Creating the project
 
@@ -44,7 +44,7 @@ This step will:
 
 ## Add Environment Variables
 
-1. Copy the contents of the `.env.example` file to `.env` after the Sanity environment variables.
+1. Copy the contents of the `.env.example` file and paste it into the `.env` file after the Sanity environment variables.
 2. Replace the values for
 
 - VITE_SANITY_PROJECT_ID="xxxxxx" with the SANITY_PROJECT_ID variable and delete the SANITY_PROJECT_ID variable.
@@ -65,23 +65,23 @@ VITE_SANITY_USE_CDN=true
 
 ## Development
 
-Once you've created a project and installed dependencies with you can run the development server locally to view the project.
+Once you've created a project, installed dependencies and set up the Sanity ENV variables you can run the development server locally to view the project.
 
 ---
 
-```bash
-# start the server
-pnpm dev
+_start the development server_
 
-# or start the server and open the app in a new browser tab
-pnpm dev --open
+```bash
+pnpm dev
 ```
+
+---
 
 ## Working with Sanity
 
-With the project running you'll see that the homepage has a message warning you that you need to add a Sanity Hero component. This is because the Sanity Studio is empty and there is no data to display.
+With the project running you'll see that the homepage has a message informing you that there is no content in Sanity yet. This is because the dataset that you are fetching from is empty and there is no data to display.
 
-Click the link to go to the Sanity Studio and login with your Sanity credentials. Once you're logged into your studio take a look at Home and you'll see an empty hero component.
+Click the link to go to the Sanity Studio and login with your Sanity credentials. You'll need to add your studio URL as a CORS origin within your Sanity project. You should be guided through this process the first time you connect. Once you're logged into your studio take a look at [`Home`](/studio/desk/home) and you'll see an empty hero component.
 
 1. Add a title.
 2. Click Add Item under Content and add a new image.
@@ -99,7 +99,7 @@ There are some assumptions made here.
 1. You have a Shopify store.
 2. There are products in your store available for sale.
 
-In order to connect Shopify to Sveltekit you'll need to setup Shopify Storefront API access. You can do that here: https://shopify.dev/docs/custom-storefronts/building-with-the-storefront-api/manage-headless-channels
+In order to connect Shopify to Sveltekit you'll need to setup Shopify Storefront API access. You can do that quite simply by adding the Headless Sales Channel: https://shopify.dev/docs/custom-storefronts/building-with-the-storefront-api/manage-headless-channels
 
 Once you have your API key you'll need to add it to your `.env` file. You can do that by uncommenting the variables that you copied into `.env` from `.env.example` in an earlier step and replacing the placeholder values with the values that match your store domain, api version and api key. Your `.env` file should look something like this:
 
