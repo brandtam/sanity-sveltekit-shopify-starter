@@ -4,8 +4,7 @@ const accessToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
 const shopifyEndpoint = `https://${storeUrl}/api/${apiVersion}/graphql.json`;
 const shopifyInactive = !accessToken;
 
-const gql = String.raw;
-
+import { gql } from '$lib/utils/utils';
 import { shopCart } from '$lib/stores';
 import { goto } from '$app/navigation';
 

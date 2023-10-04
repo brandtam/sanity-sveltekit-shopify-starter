@@ -1,10 +1,11 @@
 import type { PageLoad } from './$types';
 import { client } from '$lib/utils/sanity';
+import { gql } from '$lib/utils/utils';
 
 export const load = (async ({ fetch, params }) => {
 	try {
 		const product = await client.fetch(
-			`*[_type == "product" && store.slug.current == '${params.slug}']{
+			gql`*[_type == "product" && store.slug.current == '${params.slug}']{
 				...,
 				imageGallery {
 					images[]{
