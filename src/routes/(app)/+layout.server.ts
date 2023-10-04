@@ -1,5 +1,6 @@
 import type { LayoutServerLoad } from './$types';
 import { client } from '$lib/utils/sanity';
+import { gql } from '$lib/utils/utils';
 
 const accessToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
 const shopifyInactive = !accessToken;
@@ -8,7 +9,7 @@ export const load = (async () => {
 	const home = async () => {
 		try {
 			const data = await client.fetch(
-				`*[_type == "home"]{
+				gql`*[_type == "home"]{
 					...,
 				}`
 			);
@@ -24,7 +25,7 @@ export const load = (async () => {
 		}
 		try {
 			const data = await client.fetch(
-				`*[_type == "product" && store.status == 'active']{
+				gql`*[_type == "product" && store.status == 'active']{
 					...,
 					store {
 						...,
